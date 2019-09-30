@@ -1,3 +1,58 @@
 # Description of your program (part 7)
 
+Accept one file as input from the user.
+Extract the text content of the file as plain text.
+Set the initial word count to zero.
+Repeat with text content of the file, one character at a time, stopping once the
+entire text has been consumed:
+  - move forward one character at a time, until no characters remain, or the
+    next character IS NOT a whitespace character.
+  - if the next character is not a whitespace character, increment the word
+    count by one.
+  - move forward one character at a time, until no characters remain, or the
+    character IS a whitespace character.
+Output the word count.
+
 # Reflection on writing your program (part 8)
+
+I found this exercise to be relatively challenging. In particular, I identified
+two challenges simply based on ambiguity of the original description.
+
+First, "in a document" could mean a number of different things. For example,
+while parsing words in a plain text document might be relatively simple, doing
+the same for a more complex document type such as a word document or PDF would
+involve more processing than is reasonable to describe in this manner. I ended
+up more or less passing this ambiguity on in my instructions, saying only to
+"extract the text content of the file as plain text." The method for doing so,
+and the types of files supported by a program, are therefore implementation
+specific.
+
+Second, counting words is, to an extent, a somewhat ambiguous task in itself.
+Consider the following plain text:
+
+  We saw 29 elephants—quite exciting!
+
+The program I describe would count 5 words, counting "elephants—quite" and "!"
+as single words each. Most people, I suspect, would also count six words. But
+what if you heard this spoken aloud? One might transcribe "29" as "twenty-nine."
+IS this one word or two? If it should be one, can the program distinguish it
+from "elephants—quite," and will this be the same number of words as any other
+way someone might type this, such as "elephants--quite" or even
+"elephants – quite"?
+
+Given all of these complexities, I decided to attempt to describe a simple
+algorithm such that any run of consecutive non-whitespace characters surrounded
+on both sides by either whitespace or the beginning or end of the entire text.
+This does unfortunately get things wrong rather often. For example, it would say
+that "one-two" is one word (Google Docs says this as well, the word counting in
+macOS says two) and that "one - two" is three (Google Docs and macOS agree this
+is only two). Just as with any other word counting program, over a long
+document, these errors should even out, more or less.
+
+Even after identifying the algorithm I wanted to use for word counting, it was
+still somewhat challenging to write it out in English text. My first attempt
+turned out more implementation-specific than I wanted (using a stream to consume
+characters). All in all, I'm fairly happy with how it turned out.
+
+In this course, I'm hoping to learn python (never used before), get practice
+working with real world applications and information, and build something cool!
