@@ -32,13 +32,12 @@ Consider the following plain text:
 
   We saw 29 elephants—quite exciting!
 
-The program I describe would count 5 words, counting "elephants—quite" and "!"
-as single words each. Most people, I suspect, would also count six words. But
-what if you heard this spoken aloud? One might transcribe "29" as "twenty-nine."
-IS this one word or two? If it should be one, can the program distinguish it
-from "elephants—quite," and will this be the same number of words as any other
-way someone might type this, such as "elephants--quite" or even
-"elephants – quite"?
+The program I describe would count 5 words, counting "elephants—quite" as a
+single word. Most people, I suspect, would count six words. But what if you
+heard this spoken aloud? One might transcribe "29" as "twenty-nine." IS this one
+word or two? If it should be one, can the program distinguish it from
+"elephants—quite," and will this be the same number of words as any other way
+someone might type this, such as "elephants--quite" or even "elephants – quite"?
 
 Given all of these complexities, I decided to attempt to describe a simple
 algorithm such that any run of consecutive non-whitespace characters surrounded
